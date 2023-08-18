@@ -2,6 +2,10 @@ package be.technifutur.spring.demo.controller;
 
 import be.technifutur.spring.demo.services.MessageService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,8 +37,13 @@ public class DemoController {
             description = "Retourne la valeur de la variable message",
             responseCode = "200"
     )
-    public String getLastMessage(){
-        return messageService.getLastMessage();
+    public ResponseEntity<String> getLastMessage(){
+        String body = messageService.getLastMessage();
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.add("headerName","headerValue");
+        HttpStatus status = HttpStatus.I_AM_A_TEAPOT;
+//        return new ResponseEntity<>(messageService.getLastMessage(),HttpStatus.OK);
+        return ResponseEntity.status(418).header("headerName","headerValue1","headerValue2").body(body);
     }
 
     //permet de poster sur plusieurs URI
