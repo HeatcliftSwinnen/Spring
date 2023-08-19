@@ -2,6 +2,7 @@ package be.technifutur.spring.demo;
 
 
 import be.technifutur.spring.demo.models.JeuxVideo;
+import be.technifutur.spring.demo.services.JeuxVideoService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -15,12 +16,16 @@ public class SpringDemoApplication {
 
 	public static void main(String[] args) {
 
-		ApplicationContext ctxt= SpringApplication.run(SpringDemoApplication.class, args);
-		//Scanner scanner = ctxt.getBean(Scanner.class);
 
-		 List<JeuxVideo> ListJeux = new ArrayList<>();
+		// Lancement de l'application Spring et obtention du contexte d'application
+		ApplicationContext applicationContext = SpringApplication.run(SpringDemoApplication.class, args);
 
-		ListJeux.add(new JeuxVideo(
+		// Récupération d'une instance du service JeuxVideoService à partir du contexte d'application
+		JeuxVideoService jeuxVideoService = applicationContext.getBean(JeuxVideoService.class);
+
+
+
+		jeuxVideoService.addJeuxVideo(new JeuxVideo(
 				1,
 				"Fantasy Quest",
 				List.of("RPG", "Fantasy"),
@@ -30,7 +35,7 @@ public class SpringDemoApplication {
 				List.of("PC", "PlayStation 5", "Xbox Series X")
 		));
 
-		ListJeux.add(new JeuxVideo(
+		jeuxVideoService.addJeuxVideo(new JeuxVideo(
 				2,
 				"Galactic Odyssey",
 				List.of("Sci-Fi", "Action", "Adventure"),
@@ -40,7 +45,7 @@ public class SpringDemoApplication {
 				List.of("PC", "PlayStation 5", "Xbox Series X", "Nintendo Switch")
 		));
 
-		ListJeux.add(new JeuxVideo(
+		jeuxVideoService.addJeuxVideo(new JeuxVideo(
 				3,
 				"Mystic Runes",
 				List.of("Adventure", "Puzzle"),
@@ -50,16 +55,7 @@ public class SpringDemoApplication {
 				List.of("PC", "PlayStation 4", "Xbox One")
 		));
 
-		ListJeux.add(new JeuxVideo(
-				4,
-				"Cyber Nexus",
-				List.of("Cyberpunk", "Open World", "Shooter"),
-				LocalDate.of(2023, 5, 2),
-				"Neon Interactive",
-				49.99,
-				List.of("PC", "PlayStation 5", "Xbox Series X")
-		));
-
 	}
+
 
 }

@@ -10,7 +10,7 @@ public interface JeuxVideoService {
     void deleteJeuxVideo(int id);
     JeuxVideo getJeuVideo(int id);
     List<JeuxVideo> getAll();
-    Void modifyAll(int id);
-    Void modify(int id,double newPrice);
+    void modifyAll(int id, JeuxVideo updatedJeuxVideo);
+    void modifyPrice(int id, double newPrice);
     void addPlatform (int id, String platformToAdd);
 }

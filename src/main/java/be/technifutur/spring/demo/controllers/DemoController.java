@@ -1,10 +1,8 @@
-package be.technifutur.spring.demo.controller;
+package be.technifutur.spring.demo.controllers;
 
 import be.technifutur.spring.demo.services.MessageService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,6 +59,7 @@ public class DemoController {
         messageService.deleteMEssage(i);
     }
     @PutMapping("/message/{index:[0-9]+}")
+
     public void changeMessage(@PathVariable("index") int i,@RequestBody String toModify){
         messageService.changeMessage(i,toModify);
     }
