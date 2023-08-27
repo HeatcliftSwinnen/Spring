@@ -4,5 +4,7 @@ import lombok.Data;
 
 @Data
 public class GamePriceForm {
+
+    // Nouveau prix du jeu
     private double price;
 }

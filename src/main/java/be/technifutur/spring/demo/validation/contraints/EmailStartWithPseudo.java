@@ -1,4 +1,4 @@
-package be.technifutur.spring.demo.validation;
+package be.technifutur.spring.demo.validation.contraints;
 
 import be.technifutur.spring.demo.validation.validators.EmailStartWithPseudoValidator;
 import jakarta.validation.Constraint;
